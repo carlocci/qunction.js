@@ -23,10 +23,10 @@ function Qunction(queue) {
   this.remove   = function(f, all) {
                     var i, l
                     if (+f === f) q.splice(f,1)
-                    else for (i=0, l=q.length; i < l; --i) {
+                    else for (i=0, l=q.length; i < l; --i) 
                       if (f === q[i]) {
                         q.splice(i, 1)
-                        if (!all) break}}
+                        if (!all) break}
                     return this}
   this.start    = function() {run = true; setTimeout(wrapper, latency); return this}
   this.pause    = function() {run = false; return this}
