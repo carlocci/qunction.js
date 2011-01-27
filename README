@@ -3,7 +3,7 @@ qunction.js (pronounciation: queue unction)
 a library which implements enqueuing functions to be executed in a non blocking
 manner when the interpreter is idle
 
-foo = new Qunction([arrayOfFunctions][, latency]);
+foo = new Qunction([arrayOfFunctions][, latency[, context]]);
 foo.add(function/arrayOfFunctions/QunctionInstance[, position])
 foo.remove(someOtherFunction/position);
 foo.start()
@@ -12,6 +12,8 @@ foo.stop()
 foo.rewind()
 foo.setLatency(msec)
 foo.getLatency()
+foo.setContext(obj)
+foo.getContext()
 
 You can chain methods:
 foo.add(bar).add(baz).start()    which is equivalent to
