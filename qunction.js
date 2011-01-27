@@ -32,7 +32,7 @@ function Qunction(queue, latency) {
   this.pause    = function() {run = false; return this}
   this.stop     = function() {run = false, s = 0; return this}
   this.rewind   = function() {s = 0; return this}
-  this.setLatency = function(l) {return latency = l}
+  this.setLatency = function(l) {latency = l; return this}
   this.getLatency = function() {return latency}
 }
 
