@@ -1,0 +1,25 @@
+<!doctype html>
+<head>
+  <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+  <title>Qunction Example</title>
+  <script src="/lib/qunction.js/qunction.js" type="text/javascript"></script>
+  <style>
+    div {
+      background-color: red;
+      border: 3px solid #66e;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <input type="text" name="raw" size="100">
+  </form>
+  <div>
+    placeholder text here
+  </div>
+  <script type="text/javascript">
+    queue = new Qunction();
+    function foo() {alert(1)}
+    queue.add([foo, foo, foo, foo]);
+    queue.start();
+  </script>

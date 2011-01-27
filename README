@@ -1,11 +1,17 @@
-qunction.js (pronounciation: queue nction)
+qunction.js (pronounciation: queue unction)
 
-a library which implements enqueing functions to be executed in a non blocking manner
+a library which implements enqueuing functions to be executed in a non blocking manner
 
-foo = Qunction([arrayOfFunctions]);
-foo.add(someFunction[, position]);
-foo.adds(arrayOfFunctions/QunctionInstance[, position])
+foo = new Qunction([arrayOfFunctions]);
+foo.add(function/arrayOfFunctions/QunctionInstance[, position])
 foo.remove(someOtherFunction/position);
 foo.start()
 foo.pause()
 foo.stop()
+foo.rewind()
+
+You can chain methods:
+foo.add(bar).add(baz).start()    which is equivalent to
+foo.add([bar,baz]).start()       which is equivalent to
+new Qunction([bar, baz]).start() which is equivalent to
+new Qunction(bar).add(new Qunction(baz)).start()
