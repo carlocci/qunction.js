@@ -1,11 +1,11 @@
 (function (window, undefined) {
 
-function Qunction(queue) {
+function Qunction(queue, latency) {
 
   var q = queue = queue || []
     , s = 0
     , run = false
-    , latency = 0
+    , latency = latency || 0
 
   function wrapper() {
     if (!run || s === q.length) return
@@ -32,6 +32,8 @@ function Qunction(queue) {
   this.pause    = function() {run = false; return this}
   this.stop     = function() {run = false, s = 0; return this}
   this.rewind   = function() {s = 0; return this}
+  this.setLatency = function(l) {return latency = l}
+  this.getLatency = function() {return latency}
 }
 
 window.Qunction = Qunction;
