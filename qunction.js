@@ -1,15 +1,19 @@
 (function (window, undefined) {
 
-function Qunction(queue, latency, context) {
+function Qunction(queue, latency, loop, context) {
 
   var q = queue = queue || []
     , latency = latency || 0
     , context = context || window
+    , loop = loop || false
     , run = false
     , s = 0
 
   function wrapper() {
-    if (!run || s === q.length) return
+    if (!run) return
+    if (s === q.length)
+      if (loop) s = 0
+      else return
     q[s++].call(context)
     setTimeout(wrapper, latency)}
 
@@ -37,6 +41,8 @@ function Qunction(queue, latency, context) {
   this.getLatency = function() {return latency}
   this.setContext = function(c) {context = c; return this}
   this.getContext = function() {return context}
+  this.setLoop    = function(l) {loop = !!l; return this}
+  this.getLoop    = function() {return loop}
 }
 
 window.Qunction = Qunction;
