@@ -1,13 +1,13 @@
 (function (window, undefined) {
 
-function Qunction(queue, latency, loop, context) {
+function Qunction(queue, loop, latency, context) {var q, run, s
 
-  var q = queue = queue || []
-    , latency = latency || 0
-    , context = context || window
-    , loop = loop || false
-    , run = false
-    , s = 0
+  q       = queue   || []
+  latency = latency || 0
+  context = context || window
+  loop    = loop    || false
+  run     = false
+  s       = 0
 
   function wrapper() {
     if (!run) return
