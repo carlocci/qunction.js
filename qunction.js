@@ -2,7 +2,7 @@
 
 function Qunction(queue, loop, latency, context) {var q, run, s
 
-  q       = queue   || []
+  q       = Array.prototype.slice.call(queue) || []
   latency = latency || 0
   context = context || window
   loop    = loop    || false
